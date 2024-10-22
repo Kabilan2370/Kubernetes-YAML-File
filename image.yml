@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: pod
+metadata:
+  name: image
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    imagePullPolicy: Always
+    command: ["echo","Welcome to nginx"]
