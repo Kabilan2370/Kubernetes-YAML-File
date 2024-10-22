@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Rip
+spec:
+  containers: 
+    - name: Con-one1
+      image: tomcat:latest
+      imagePullPolicy: Always
+      command: ["echo","Samsung glaxy"]
+      resources:
+        limits:
+          cpu: "3"
+          memory: "4Gi"
+        requests:
+          cpu: "1"
+          memory: "2Gi"
+    - name: Con-two2
+      image: influence:4.7
+      imagePullPolicy: Always
+      command: ["echo","Nokia in india"]
+      resources:
+        limits:
+          cpu: "2"
+          memory: "4Gi"
+        requests: 
+          cpu: "1"
+          memory: "2Gi"
