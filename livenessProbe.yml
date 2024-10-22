@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vedhlam
+  labels:
+    app: jorge
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jorge
+  template:
+    metadata:
+      labels:
+        app: jorge
+    spec:
+      containers:
+        - name: tvk
+          image: nginx:latest
+          livenessProbe:
+              httpGet:
+                path: /healthz
+                port: 3002
+              initialDelaySeconds: 13
+              periodSeconds: 2
+              timeoutSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 1
+            failureThreshold: 2
