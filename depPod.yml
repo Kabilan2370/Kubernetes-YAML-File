@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: To-direct
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: vector
+  template:
+    metadata:
+      name: vector
+    spec:
+      containers:
+        - name: tomcat
+          image: nginx:latest
+          
