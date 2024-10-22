@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: MultiContainer
+spec:
+  containers:
+    - name: con-one1
+      image: nginx:latest
+      imagePullPolicy: Always
+      command: ["echo","Container-one"]
+      ports:
+        - containerPort: 80
+    - name: con-two2
+      image: httpd:latest
+      imagePullPolicy: Always
+      command: ["echo","Container-two"]
+      ports:
+        - containerPort: 90
