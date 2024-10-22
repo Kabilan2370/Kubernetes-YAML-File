@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conection
+  labels:
+    app: victa
+spec:
+  selector:
+    matchLabels:
+      labels:
+        app: victa
+  template:
+    metadata:
+      labels:
+        app: victa
+    spec:
+      containers:
+        - name: manikpatcha
+          image: nginx:latest
+          command: ["echo","Welcome"]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+spec:
+  selector:
+    matchLabels:
+      app: victa
+    ports:
+      - containerPort: 7590
+        protocal: TCP
+        targetPort: 60
