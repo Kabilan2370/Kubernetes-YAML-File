@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicationController
+metadata:
+  name: Replica
+  labels:
+    app: march
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      labels:
+        app: march
+  template:
+    metadata:
+      labels:
+        app: march
+    spec:
+      containers:
+        - name: Con-one1
+          image: alpine:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
