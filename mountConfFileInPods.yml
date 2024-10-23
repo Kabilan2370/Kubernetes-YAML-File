@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: Data
+spec:
+  containers:
+    - name: Con1
+      image: https:latest
+      imagePullPolicy: Always
+      port:
+        - containerPort: 80
+      command: ["echo","Welocome to the comtainer"]
+      volumeMounts:
+        - name: charge-data
+          mountPath: /etc/config
+  volumes:
+    - name: sec-file
+      configMap:
+        name: charge-data
+
