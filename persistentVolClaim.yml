@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: data-source
+spec:
+  containers:
+    - name: Con1
+      image: nginx:latest
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 78
+      volumeMounts:
+        - name: mount-file
+          mountPath: /etc/config
+  volumes:
+    - name: mount-file
+      persistentVolumeClaim:
+        claimName: my-files
+
+      
