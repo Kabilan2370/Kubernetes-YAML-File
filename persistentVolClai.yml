@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-data
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+    #- ReadOnlyMany
+    #- ReadwriteMany
+  resources:
+    requests:
+      storage: 2Gi
