@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: ConfigMap
+metadata:
+  name: Conf-file
+data:
+  text-data: "Password"
+binaryData:
+  binary-file: |
+    Z21haWxAMzQ1
+
+# To encode a value
+# echo -n 'gmail@345' | base64
+
+# To decode a value
+# echo 'Z21haWxAMzQ1' | base64 --decode
