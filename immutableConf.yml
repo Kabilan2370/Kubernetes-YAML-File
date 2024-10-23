@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: pod-test
+  annotations:
+    immutable: "true"
+data:
+  text-data: "Password"
+binaryData:
+  binary-file: |
+    Z21haWxAMzQ1
+    
+      
