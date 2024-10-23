@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: ConfigMap
+metadata:
+  name: File
+data:
+  database_host: 192.168.1.82
+  debug_mode: "1"
+  log_level: "verbose"
