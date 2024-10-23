@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: ConfigMap
+metadata:
+  name: map-data
+spec:
+  containers:
+    - name: Con
+      image: radis:4.7
+      ports:
+        - containerPort: 89
+      env:
+        - name: App
+          valueFrom:
+            configMapKeyRef:
+              name: app-file
+              key: App
