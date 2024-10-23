@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: Data
+spec:
+  containers:
+    - name: Npm
+      image: mkenney/npm:latest
+      imagePullPolicy: Always
+      port:
+        - containerPort: 90
+      volumeMounts:
+        - name: myConVol
+          mountPath: /etc/config
+          
+  volumes:
+    - name: myConVol
+      configMap: 
+        name: conf-file
