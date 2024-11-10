@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Pod
+metadata: 
+  name: Security
+spec:
+  securityContext:
+    fsGroup: 3000
+    runAsUser: 2000
+    runUsGroup: 2000
+  containers:
+    - name: con1
+      image: alpine
+      imagePullPolicy: Always
+      command: ["echo","Welcome to con1"]
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
