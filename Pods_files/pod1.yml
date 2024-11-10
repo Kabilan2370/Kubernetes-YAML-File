@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: Container
+spec:
+  containers:
+    name: con1
+    image: alpine
+    imagePullPolicy: Always
+    ports:  
+      - containerPort: 78
+    envFrom:
+      - secretRef: my-files
+
+    volumeMounts:
+      - name: files
+        mountPath: /etc/files
+  volumes:
+    - name: files
+      secret:
+        name: my-files
