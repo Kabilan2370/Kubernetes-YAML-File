@@ -1,0 +1,31 @@
+apiVersion: apps/va1
+kind: Deployment
+metadata:
+  name: Radis databse
+  labels:
+    app: redis
+    role: admin
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: admin
+        tier: backend
+    spec: 
+      containers:
+        - name: redis
+          image:
+          resources:
+            requests:
+              cpu: 1G
+              memory: 2G
+          ports:
+            - containerPort: 6789
+          
+        
